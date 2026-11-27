@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Restaurant | Home</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #302020;
+            background: #fff9f2;
+        }
+
+        /* Navigation bar */
+        .navbar {
+            min-height: 76px;
+            padding: 14px 8%;
+            background: #8B0000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 27px;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 12px 22px;
+            border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 9px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: white;
+            color: #8B0000;
+        }
+
+        /* Hero section */
+        .hero {
+            min-height: 530px;
+            padding: 75px 8% 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(115, 0, 0, 0.78),
+                    rgba(139, 0, 0, 0.86)
+                ),
+                url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2000&q=85');
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.6);
+            padding: 9px 18px;
+            border-radius: 30px;
+            margin-bottom: 22px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: clamp(36px, 5vw, 60px);
+            line-height: 1.15;
+            margin-bottom: 22px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: #fff0e8;
+            font-size: 19px;
+            line-height: 1.8;
+            max-width: 720px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .hero-buttons a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 16px 30px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            color: #8B0000;
+            background: white;
+            border: 2px solid white;
+        }
+
+        .primary-btn:hover {
+            background: #ffe6dc;
+            transform: translateY(-3px);
+        }
+
+        .secondary-btn {
+            color: white;
+            border: 2px solid white;
+            background: transparent;
+        }
+
+        .secondary-btn:hover {
+            background: white;
+            color: #8B0000;
+            transform: translateY(-3px);
+        }
+
+        /* Services section */
+        .services {
+            padding: 65px 8% 75px;
+            text-align: center;
+            background: #fff9f2;
+        }
+
+        .section-heading {
+            font-size: 35px;
+            color: #8B0000;
+            margin-bottom: 14px;
+        }
+
+        .section-description {
+            font-size: 17px;
+            color: #6f625e;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+            max-width: 1150px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(65, 25, 15, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 28px rgba(65, 25, 15, 0.18);
+        }
+
+        .service-card img {
+            display: block;
+            width: 100%;
+            height: 205px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            color: #8B0000;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .service-content p {
+            color: #6f625e;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .service-label {
+            display: inline-block;
+            margin-top: 18px;
+            color: #8B0000;
+            background: #fff0e8;
+            padding: 8px 13px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* Why choose us */
+        .why-us {
+            padding: 55px 8% 70px;
+            background: #fff0e8;
+            text-align: center;
+        }
+
+        .benefit-grid {
+            max-width: 1050px;
+            margin: 35px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px 22px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(65, 25, 15, 0.09);
+        }
+
+        .benefit-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h3 {
+            color: #8B0000;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .benefit-card p {
+            color: #6f625e;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: #302b2b;
+            color: white;
+            text-align: center;
+            padding: 24px 15px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        footer span {
+            color: #ffc6ad;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 850px) {
+            .navbar {
+                padding: 16px 5%;
+            }
+
+            .service-grid,
+            .benefit-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .hero {
+                padding: 65px 5%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                padding: 20px 15px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                padding: 10px 16px;
+            }
+
+            .hero {
+                min-height: 470px;
+                padding: 55px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .services,
+            .why-us {
+                padding: 45px 20px;
+            }
+
+            .section-heading {
+                font-size: 29px;
+            }
+
+            .service-grid,
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="index.jsp" class="logo">🍽 Online Restaurant</a>
+
+        <nav class="nav-links">
+            <a href="login.jsp">Login</a>
+            <a href="register.jsp">Register</a>
+        </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                GOOD FOOD • GOOD MOOD
+            </div>
+
+            <h1>
+                Your Favourite Food,<br>
+                Delivered with Love
+            </h1>
+
+            <p>
+                Discover delicious meals, explore our food menu,
+                and enjoy your favourite dishes from the comfort
+                of your home.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="login.jsp" class="primary-btn">
+                    Order Now &rarr;
+                </a>
+
+                <a href="register.jsp" class="secondary-btn">
+                    Create Account
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services section -->
+    <section class="services">
+
+        <h2 class="section-heading">Explore Our Services</h2>
+
+        <p class="section-description">
+            Everything you need for a delightful food experience.
+        </p>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <img
+                    src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=85"
+                    alt="Freshly prepared pizza">
+
+                <div class="service-content">
+                    <h3>Food Ordering</h3>
+                    <p>
+                        Explore delicious dishes and choose
+                        your favourites from our food menu.
+                    </p>
+                    <span class="service-label">TASTY & FRESH</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85"
+                    alt="Fresh and colourful food">
+
+                <div class="service-content">
+                    <h3>Quality Food</h3>
+                    <p>
+                        Enjoy a variety of meals prepared with
+                        care for a satisfying dining experience.
+                    </p>
+                    <span class="service-label">MADE WITH CARE</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img
+                    src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=900&q=85"
+                    alt="Delicious pasta dish">
+
+                <div class="service-content">
+                    <h3>Easy Ordering</h3>
+                    <p>
+                        Browse the menu and place your food
+                        order through our convenient website.
+                    </p>
+                    <span class="service-label">SIMPLE & EASY</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why choose us -->
+    <section class="why-us">
+
+        <h2 class="section-heading">Why Choose Us?</h2>
+
+        <p class="section-description">
+            We make ordering your favourite food simple,
+            convenient and enjoyable.
+        </p>
+
+        <div class="benefit-grid">
+
+            <div class="benefit-card">
+                <div class="benefit-icon">🍲</div>
+                <h3>Fresh Food</h3>
+                <p>
+                    Enjoy a variety of delicious meals and
+                    discover dishes to suit your taste.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">🛒</div>
+                <h3>Easy Ordering</h3>
+                <p>
+                    Browse our menu and use our online system
+                    to order your favourite dishes.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">🚚</div>
+                <h3>Convenient Service</h3>
+                <p>
+                    Our restaurant system helps customers
+                    manage their food orders conveniently.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; 2026 <span>Online Restaurant</span>.
+            All rights reserved.
+        </p>
+        <p>Delicious food, freshly prepared and delivered with care.</p>
+    </footer>
+
+</body>
+</html>
